@@ -1,17 +1,17 @@
-let listaAmigoSecreto = []
-
+let listaAmigoSecreto = [];
+ 
 
 function adicionarAmigo(){
-    const amigoDigitado = document.getElementById('amigo');
-    const nome = amigoDigitado.value.trim();
+    let amigoDigitado = document.getElementById('amigo');
+    let nome = amigoDigitado.value.trim();
 
     if (nome === "") {
-        alert ('Por favor, insira um nome válido.');
+        alert ('Por favor, insira um nome válido!');
         return;
     }   
 
     if (listaAmigoSecreto.includes(nome)) {
-        alert ('Este nome já foi adicionado à lista.');
+        alert ('Este nome já foi adicionado à lista!');
         return;
     }
 
@@ -22,13 +22,29 @@ function adicionarAmigo(){
 }
 
 function atualizarLista(){
-    const listaAmigoOculto = document.getElementById ('listaAmigos');
+    let listaAmigoOculto = document.getElementById ('listaAmigos');
     listaAmigoOculto.innerHTML = '';
 
    listaAmigoSecreto.forEach(amigo =>{
-    const nomeNaLista = document.createElement ('li');
+    let nomeNaLista = document.createElement ('li');
     nomeNaLista.textContent = amigo;
     listaAmigoOculto.appendChild(nomeNaLista);
     //corrigir nomes
    })
 }
+
+function sortearAmigo() {
+    if (listaAmigoSecreto < 3) {
+        alert ('É necessário ao menos 3 amigos para sortear!');
+        return;
+    }
+
+    let nomeAleatório = parseInt(Math.random() *listaAmigoSecreto.length);
+    let amigoSorteado = listaAmigoSecreto[nomeAleatório];
+
+    let resultadoDoSorteio = document.getElementById('resultado');
+    resultadoDoSorteio.innerHTML = `O amigo sorteado é: ${amigoSorteado}.`
+
+}
+
+   
