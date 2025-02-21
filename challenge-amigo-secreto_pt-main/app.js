@@ -1,13 +1,28 @@
-let listaAmigos = []
+let listaAmigoSecreto = []
 
 
 function adicionarAmigos(){
-    let amigoDigitado = document.getElementById('amigo');
-    let nome = amigoDigitado.value.trim();
+    const amigoDigitado = document.getElementById('amigo');
+    const nome = amigoDigitado.value.trim();
+
     if (nome === "") {
         alert ('Por favor, insira um nome válido.');
         return;
     }   
-    listaAmigos.push(nome)
+    listaAmigoSecreto.push (nome);
     amigoDigitado.value = "";
+
+    atualizarLista ();
+}
+
+function atualizarLista(){
+    const listaAmigoOculto = document.getElementById ('listaAmigos');
+    listaAmigoOculto.innerHTML = '';
+
+   listaAmigoSecreto.forEach(amigo =>{
+    const nomeNaLista = document.createElement ('li');
+    nomeNaLista.textContent = amigo;
+    listaAmigoOculto.appendChild(nomeNaLista);
+    //corrigir nomes
+   })
 }
