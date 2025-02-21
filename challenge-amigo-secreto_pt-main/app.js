@@ -34,12 +34,12 @@ function atualizarLista(){
 }
 
 function sortearAmigo() {
-    if (listaAmigoSecreto < 3) {
+    if (listaAmigoSecreto.length < 3) {
         alert ('É necessário ao menos 3 amigos para sortear!');
         return;
     }
 
-    let nomeAleatório = parseInt(Math.random() *listaAmigoSecreto.length);
+    let nomeAleatório = Math.floor(Math.random() *listaAmigoSecreto.length);
     let amigoSorteado = listaAmigoSecreto[nomeAleatório];
 
     let resultadoDoSorteio = document.getElementById('resultado');
