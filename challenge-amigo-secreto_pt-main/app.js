@@ -34,8 +34,8 @@ function atualizarLista(){
 }
 
 function sortearAmigo() {
-    if (listaAmigoSecreto.length < 3) {
-        alert ('É necessário ao menos 3 amigos para sortear!');
+    if (listaAmigoSecreto.length < 2) {
+        alert ('É necessário ao menos 2 amigos para sortear!');
         return;
     }
 
@@ -44,6 +44,14 @@ function sortearAmigo() {
 
     let resultadoDoSorteio = document.getElementById('resultado');
     resultadoDoSorteio.innerHTML = `O amigo sorteado é: ${amigoSorteado}.`
+
+     // Removendo o amigo sorteado da lista
+     listaAmigoSecreto.splice(nomeAleatório, 1);
+
+    
+
+     // Atualizando a lista de amigos na interface
+     atualizarLista();
 
 }
 
