@@ -1,7 +1,7 @@
 let listaAmigoSecreto = []
 
 
-function adicionarAmigos(){
+function adicionarAmigo(){
     const amigoDigitado = document.getElementById('amigo');
     const nome = amigoDigitado.value.trim();
 
@@ -9,6 +9,12 @@ function adicionarAmigos(){
         alert ('Por favor, insira um nome válido.');
         return;
     }   
+
+    if (listaAmigoSecreto.includes(nome)) {
+        alert ('Este nome já foi adicionado à lista.');
+        return;
+    }
+
     listaAmigoSecreto.push (nome);
     amigoDigitado.value = "";
 
